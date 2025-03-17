@@ -1,0 +1,44 @@
+#include<iostream>
+#include<stack>  // 스택 헤더 파일
+using namespace std;
+
+int main(void) {
+	stack<int> Stack;  // int형 변수를 저장하는 스택
+	int end;  // 반복문 실행 횟수
+	string command;  // 명령어
+
+	cin >> end;
+	for (int i = 0; i < end; i++)
+	{
+		cin >> command;
+		if (command == "push") {
+			int data;  cin >> data;
+			Stack.push(data);
+		}
+		else if (command == "pop") {
+			if (Stack.empty() == true)   // 스택이 비어있는 경우
+				cout << -1 << endl;
+			else {
+				cout << Stack.top() << endl;  // 스택에서 최상위 자료 반환
+				Stack.pop();  // 스택의 최상위 데이터 삭제
+			}
+		}
+		else if (command == "size")
+			cout << Stack.size() << endl;
+		else if (command == "empty") {
+			if (Stack.empty() == true)
+				cout << 1 << endl;
+			else
+				cout << 0 << endl;
+		}
+		else if (command == "top") {
+			if (Stack.empty() == true)
+				cout << -1 << endl;
+			else
+				cout << Stack.top() << endl;
+		}
+	}
+
+
+	return 0;
+}
