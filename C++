@@ -1,0 +1,50 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main(void) {
+	int input, i = 0, * arr, len = 0;
+	string command;
+
+	cin >> input;
+	arr = new int[input];
+	while (i < input)
+	{
+		cin >> command;
+		if (command == "push") {
+			int data;
+			cin >> data;
+			if (len != input) {
+				arr[len] = data;
+				len++;
+			}
+		}
+		else if (command == "pop") {
+			if (len == 0)
+				cout << -1 << endl;
+			else {
+				cout << arr[len - 1] << endl;
+				arr[len - 1] = NULL;
+				len--;
+			}
+		}
+		else if (command == "size")
+			cout << len << endl;
+		else if (command == "empty") {
+			if (len == 0)
+				cout << 1 << endl;
+			else
+				cout << 0 << endl;
+		}
+		else if (command == "top") {
+			if (len == 0)
+				cout << -1 << endl;
+			else
+				cout << arr[len - 1] << endl;
+		}
+		i++;
+	}
+	delete[] arr;
+
+	return 0;
+}
